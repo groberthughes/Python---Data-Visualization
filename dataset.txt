@@ -1,0 +1,3 @@
+Our dataset is a collection of 27000+ games on the steam store.  Each game has a ratings, positive and negative reviews, average playtime, price, year of release, publisher, etc...
+
+We can review the dataset to find relationships between these various axes, and try to make conclusions about video game publishing and player reception. We can use the data to make useful conclusions for both players and future developers to focus their efforts and purchases on specific genres and audiences, and help define appropriate price points for games.
