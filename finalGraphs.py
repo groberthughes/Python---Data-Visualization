@@ -5,13 +5,14 @@ from datetime import datetime
 from dateutil.parser import parse
 
 
-""" I focused my data manipulation on stratifying the data by developer, and making
+""" 
+	I focused my data manipulation on stratifying the data by developer, and making
 	plots that show the similarities and differences between the various development
-	companies.
+	companies over time
 
 	Additionally, I did not hard-code any values for the developer names, thus the user 
 	can change the developers list below to investigate various 
-	combinations of developers they are interested in
+	combinations of developers they are interested in (as many developers as desired)
 """
 
 #Change this to inspect different sets of developers from the dataset
@@ -138,12 +139,9 @@ def extract_company_binned_ownership(df, company):
 	ownership12 = bin12["owners"].sum()
 	ownership14 = bin14["owners"].sum()
 
-
-	
 	#make list of date stratified ownership data
 	ownership = [ownership06, ownership08, ownership10, ownership12, ownership14]
 	return ownership
-
 
 """
 	Plots the ratio of relative market share for each 5 year bin of time
@@ -167,11 +165,6 @@ def plot_stratified_market_share(binStratifiedCompanySales):
 	plt.legend()
 	plt.title("Game Sales per 2 Year Cycle").set_fontsize(20)
 	plt.show()
-
-
-
-
-
 
 
 """
@@ -217,7 +210,6 @@ def getYear(dateStr):
 	dt = datetime.strptime(dateStr, '%Y-%m-%d')
 	year = str(dt.year)[:4].zfill(2)
 	return year
- 
 
 def reformatDate(dateStr):
 	dt = datetime.strptime(dateStr, '%Y-%m-%d')
@@ -231,32 +223,26 @@ def meanFromRange(string):
 
 
 """
-	Main
+-------------------------------------------------------------------
+								Main
+-------------------------------------------------------------------
 """
 def main():
 	df = load_csv()
 
-	"""
-		Average Playtime Scatterplot
-	"""
+	# Average Playtime Scatterplot
 	company_stratified_game_playtime = seperate_company_playtime_data(df)
 	plot_stratified_game_playtime(company_stratified_game_playtime)
 
 
-	"""
-		Revenue scatterplot
-	"""
+	#Revenue scatterplot
 	company_stratified_game_revenue = seperate_company_revenue_data(df)
 	plot_stratified_game_revenue(company_stratified_game_revenue)
 
 
-	"""
-		Market Share scatterplot
-	"""
+	#Market Share scatterplot
 	company_stratified_market_share = seperate_company_market_share(df)
 	plot_stratified_market_share(company_stratified_market_share)
-
-
 
 
 main()
