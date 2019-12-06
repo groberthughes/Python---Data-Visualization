@@ -130,8 +130,8 @@ def plot_tags_vs_playtime(tags_vs_playtime):
 #
 def main():
 	df = pd.read_csv("C:\\Users\\ogree\\repos\\ista-131-final\\steam.csv")
-	#plot_ratings_vs_price(extract_ratings_vs_price(df))
-	#plot_dev_vs_playtime(extract_dev_vs_playtime(df))
+	plot_ratings_vs_price(extract_ratings_vs_price(df))
+	plot_dev_vs_playtime(extract_dev_vs_playtime(df))
 	plot_tags_vs_playtime(extract_tags_vs_playtime(df))
 
 main()
